@@ -1,8 +1,8 @@
 3 nodes clickhouse
 
-# OS: Ubuntu 20.04 LTS
+OS: Ubuntu 20.04 LTS
 
-# ClickHouse version: 21.7.4 revision 54449
+ClickHouse version: 21.7.4 revision 54449
 
 ```
 192.168.0.51
