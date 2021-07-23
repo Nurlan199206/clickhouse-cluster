@@ -43,6 +43,7 @@ Query id: 00f924f7-e9d5-415d-82c7-f306abba0284
 
 1) on all nodes ```create DATABASE test on cluster perftest_1shards_3replicas```
 
+
 2) on all nodes ```CREATE TABLE test.visits_local
 (
     id UInt64,
@@ -54,11 +55,14 @@ ENGINE = MergeTree()
 PRIMARY KEY id
 ORDER BY id```
 
+
 3) on all nodes ```CREATE TABLE test.visits_all AS test.visits_local
 ENGINE = Distributed('perftest_1shards_3replicas', 'test', visits_local, rand());```
 
+
 4) insert on 1 & 2 nodes
 ```INSERT INTO test.visits_all VALUES (1, 10.5, 'http://example.com', '2019-01-01 00:01:01');```
+
 
 5) run query on node 03 
 ```
