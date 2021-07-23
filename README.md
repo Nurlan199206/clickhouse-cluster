@@ -20,8 +20,8 @@
 192.168.0.55
 192.168.0.56
 ```
-
-testing distributed table
+--------------------------------------------------------------------------------------------------------------------------------
+Testing distributed table
 
 first check cluster: 
 
@@ -59,3 +59,17 @@ ENGINE = Distributed('perftest_1shards_3replicas', 'test', visits_local, rand())
 
 4) insert on 1 & 2 nodes
 ```INSERT INTO test.visits_all VALUES (1, 10.5, 'http://example.com', '2019-01-01 00:01:01');```
+
+5) ```$:clickhouse-03 :) select * from test.visits_all
+
+SELECT *
+FROM test.visits_all
+
+Query id: 7b001487-3633-4099-9271-76af5c3135f4
+
+┌─id─┬─duration─┬─url────────────────┬─────────────created─┐
+│  1 │     10.5 │ http://example.com │ 2019-01-01 00:01:01 │
+│  1 │     10.5 │ http://example.com │ 2019-01-01 00:01:01 │
+└────┴──────────┴────────────────────┴─────────────────────┘
+
+2 rows in set. Elapsed: 0.016 sec.``` 
