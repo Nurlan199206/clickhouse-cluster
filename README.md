@@ -60,9 +60,8 @@ ENGINE = Distributed('perftest_1shards_3replicas', 'test', visits_local, rand())
 4) insert on 1 & 2 nodes
 ```INSERT INTO test.visits_all VALUES (1, 10.5, 'http://example.com', '2019-01-01 00:01:01');```
 
-5) 
-```clickhouse-03 :) select * from test.visits_all
-
+5) run query on node 03 
+```
 SELECT *
 FROM test.visits_all
 
