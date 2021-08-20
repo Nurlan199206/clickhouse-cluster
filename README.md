@@ -3,6 +3,7 @@
 * OS: Ubuntu 20.04 LTS
 
 * ClickHouse version: 21.7.4 revision 54449
+* zookeeper version: 3.6.3
 
 ```
 192.168.0.51
