@@ -56,6 +56,10 @@ ENGINE = MergeTree()
 PRIMARY KEY id
 ORDER BY id```
 
+or
+
+```CREATE TABLE test.visits_local on cluster perftest_1shards_3replicas ( id UInt64, duration Float64, url String, created DateTime ) ENGINE = ReplicatedMergeTree() PRIMARY KEY id ORDER BY id```
+
 
 3) on all nodes ```CREATE TABLE test.visits_all AS test.visits_local
 ENGINE = Distributed('perftest_1shards_3replicas', 'test', visits_local, rand());```
